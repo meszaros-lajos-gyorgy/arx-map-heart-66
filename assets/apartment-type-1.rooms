@@ -1,0 +1,5 @@
+define room-with-parquette {
+  floor custom textures [wood]parquette.jpg
+}
+
+room add 500 300 500 room-with-parquette
