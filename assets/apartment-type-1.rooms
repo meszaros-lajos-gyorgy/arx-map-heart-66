@@ -1,16 +1,18 @@
 define room {
   floor custom textures [wood]oak-herringbone-parquet.jpg scale:1.5
+  ceiling custom textures [stone]white-wall.jpg
 }
 
 define kitchen {
   floor custom textures [stone]mozaic-tile.jpg
+  ceiling custom textures [stone]white-wall.jpg
 }
 
 define door {
   floor off
 }
 
-define door-to-gang {
+define door-main {
   floor off
   wall-south off
 }
@@ -19,54 +21,6 @@ define bathroom {
   floor custom textures [stone]cement.jpg scale:0.5
   wall custom textures [stone]white-wall.jpg
   ceiling custom textures [stone]white-wall.jpg
-}
-
-define gang {
-  floor custom textures [stone]ceramic-tile.jpg scale:0.25
-  wall off
-  ceiling off
-}
-
-define gangEdgeW {
-  floor custom textures [stone]ceramic-tile-edge.jpg scale:0.25
-  wall off
-  ceiling off
-}
-define gangEdgeE {
-  floor custom textures [stone]ceramic-tile-edge.jpg scale:0.25
-  wall off
-  ceiling off
-}
-define gangEdgeN {
-  floor custom textures [stone]ceramic-tile-edge.jpg scale:0.25
-  wall off
-  ceiling off
-}
-define gangEdgeS {
-  floor custom textures [stone]ceramic-tile-edge.jpg scale:0.25
-  wall off
-  ceiling off
-}
-
-define gangCornerNW {
-  floor custom textures [stone]ceramic-tile-corner.jpg scale:0.25
-  wall off
-  ceiling off
-}
-define gangCornerNE {
-  floor custom textures [stone]ceramic-tile-corner.jpg scale:0.25
-  wall off
-  ceiling off
-}
-define gangCornerSW {
-  floor custom textures [stone]ceramic-tile-corner.jpg scale:0.25
-  wall off
-  ceiling off
-}
-define gangCornerSE {
-  floor custom textures [stone]ceramic-tile-corner.jpg scale:0.25
-  wall off
-  ceiling off
 }
 
 # entry hall
@@ -105,50 +59,7 @@ room add 20 250 150 door x-- z--
 cursor save add-prefab-doorstep-ns-4
 room add 300 350 150 bathroom x--
 
-# "gang"
+# main entrance
 cursor restore entry-hall
-room add 150 300 20 door-to-gang z--
+room add 150 300 20 door-main z--
 cursor save add-prefab-doorstep-ew-1
-room add 50 0 0 default x-- z--
-
-room add 25 0 25 gangCornerNW x- z--
-cursor save gang-nw-corner
-room add 25 0 900 gangEdgeW z--
-cursor save gang-w-edge
-room add 25 0 25 gangCornerSW x- z--
-room add 200 0 25 gangEdgeS x++
-room add 25 0 25 gangCornerSE x++
-room add 25 0 75 gangEdgeE z++
-cursor save gang-s-e-edge
-room add 25 0 25 gangCornerNE z++
-cursor restore gang-s-e-edge
-room add 125 0 75 gang x--
-room add 75 0 75 gang x- z++
-room add 25 0 25 gangCornerSW x- z++
-cursor save gang-corner-bottom
-room add 25 0 550 gangEdgeE x- z++
-room add 25 0 25 gangCornerSE z++
-room add 50 0 25 gangEdgeS x++
-room add 25 0 25 gangCornerSE x++
-room add 25 0 50 gangEdgeE z++
-room add 75 0 75 gang z- x--
-
-cursor restore gang-corner-bottom
-room add 50 0 25 gangEdgeN x++
-room add 25 0 25 gangCornerNE x++
-room add 25 0 50 gangEdgeE z--
-room add 25 0 25 gangCornerSW z--
-room add 25 0 25 gangEdgeN x++
-
-cursor restore gang-w-edge
-room add 75 0 900 gang x++
-cursor restore gang-nw-corner
-room add 900 0 25 gangEdgeN x++
-room add 825 0 75 gang x+ z--
-room add 25 0 75 gangEdgeE x++
-cursor save gang-e-edge
-room add 25 0 25 gangCornerNE z++
-cursor restore gang-e-edge
-room add 25 0 25 gangCornerSE z--
-room add 725 0 25 gangEdgeS x--
-room add 25 0 25 gangCornerNW x--
