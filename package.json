@@ -24,7 +24,7 @@
   "homepage": "https://github.com/meszaros-lajos-gyorgy/arx-map-heart-66#readme",
   "dependencies": {
     "arx-convert": "^10.1.1",
-    "arx-level-generator": "^21.0.0-alpha.14",
+    "arx-level-generator": "^21.0.0-alpha.17",
     "three": "^0.167.0"
   },
   "devDependencies": {

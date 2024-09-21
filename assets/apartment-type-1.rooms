@@ -1,5 +1,31 @@
-define room-with-parquette {
-  floor custom textures [wood]parquette.jpg
+define room {
+  floor custom textures [wood]oak-herringbone-parquet.jpg scale:2
 }
 
-room add 500 300 500 room-with-parquette
+define kitchen {
+  floor custom textures [stone]mozaic-tile.jpg
+}
+
+define door {
+  floor off
+}
+
+# anteroom
+room add 350 350 550 room
+cursor save hall
+
+# kitchen
+room add 20 250 150 door x++
+cursor save add-prefab-doorstep-ns-1
+room add 550 350 550 kitchen x++
+
+# living room
+cursor restore hall
+room add 20 250 150 door x--
+cursor save add-prefab-doorstep-ns-2
+room add 600 350 550 room x--
+
+# "gang"
+cursor restore hall
+room add 150 250 20 door z--
+cursor save add-prefab-doorstep-ew-3
