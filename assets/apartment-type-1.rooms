@@ -10,22 +10,57 @@ define door {
   floor off
 }
 
-# anteroom
-room add 350 350 550 room
-cursor save hall
+define bathroom {
+  floor custom textures [stone]cement.jpg scale:0.5
+  wall custom textures [stone]white-wall.jpg
+  ceiling custom textures [stone]white-wall.jpg
+}
+
+define gang {
+  floor custom textures [stone]concrete.jpg
+}
+
+# entry hall
+room add 350 350 650 room
+cursor save entry-hall
 
 # kitchen
-room add 20 250 150 door x++
+room add 0 0 100 default x++ z-
+room add 20 250 150 door x++ z++
 cursor save add-prefab-doorstep-ns-1
-room add 550 350 550 kitchen x++
+room add 0 0 100 default x++ z--
+room add 550 350 650 kitchen x++ z-
 
 # living room
-cursor restore hall
-room add 20 250 150 door x--
+cursor restore entry-hall
+room add 0 0 100 default x-- z-
+room add 20 250 150 door x-- z++
 cursor save add-prefab-doorstep-ns-2
-room add 600 350 550 room x--
+room add 600 350 550 room x-- z+
+cursor save living-room
+
+# bedroom
+room add 200 300 20 room z--
+room add 600 350 550 room z--
+
+# toilet
+cursor restore entry-hall
+room add 20 250 150 door x-- z+
+cursor save add-prefab-doorstep-ns-3
+room add 300 350 150 bathroom x--
+
+# storage
+cursor restore entry-hall
+room add 0 0 200 default x-- z+
+room add 20 250 150 door x-- z--
+cursor save add-prefab-doorstep-ns-4
+room add 300 350 150 bathroom x--
 
 # "gang"
-cursor restore hall
+cursor restore entry-hall
 room add 150 250 20 door z--
-cursor save add-prefab-doorstep-ew-3
+cursor save add-prefab-doorstep-ew-1
+cursor save entry
+room add 50 0 0 default x-- z--
+room add 200 350 1000 gang x- z--
+room add 1000 350 200 gang x++ z+
